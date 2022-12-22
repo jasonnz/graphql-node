@@ -1,14 +1,29 @@
-exports.model = [
+const products = [
 	{
 		id: 'redshoe',
 		description: 'Red Shoe',
 		price: 185.9,
-        reviews: []
+		reviews: []
 	},
 	{
 		id: 'bluejean',
 		description: 'Blue Jeans',
 		price: 150.9,
-        reviews: []
+		reviews: []
 	}
 ];
+
+function getAllProducts() {
+	return products;
+}
+
+function getProductsByPrice(min, max) {
+	return products.filter((product) => {
+		return product.price >= min && product.price <= max;
+	});
+}
+
+module.exports = {
+	getAllProducts,
+	getProductsByPrice
+};

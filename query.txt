@@ -1,0 +1,11 @@
+{
+  productsByPrice(min:10, max: 500) {
+    price
+    id
+    description
+    reviews  {
+      rating
+      comment
+    }
+  }
+}

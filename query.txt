@@ -1,3 +1,19 @@
+// productsById
+
+{
+  productsById(id: 'redshoe') {
+    price
+    id
+    description
+    reviews  {
+      rating
+      comment
+    }
+  }
+}
+
+// productsByPrice
+
 {
   productsByPrice(min:10, max: 500) {
     price

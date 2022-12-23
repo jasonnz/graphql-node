@@ -1,7 +1,21 @@
+// products
+
+{
+  products {
+    id
+    description
+    price
+    reviews {
+      rating
+      comment
+    }
+  }
+}
+
 // productsById
 
 {
-  productsById(id: 'redshoe') {
+  productsById(id: "redshoe") {
     price
     id
     description
@@ -25,3 +39,27 @@
     }
   }
 }
+
+// mutation
+
+mutation {
+  addNewProduct(id: "orangejacket", description: "Orange Jacket", price: 225.5) {
+    id
+    reviews {
+      rating
+    }
+  }
+}
+
+mutation {
+  addNewProductReview(id: "orangejacket", rating: 5, comment: "Really great for coding!") {
+    id
+    description
+    price
+    reviews {
+      rating
+      comment
+    }
+  }
+}
+  

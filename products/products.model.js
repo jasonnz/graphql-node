@@ -18,7 +18,7 @@ function getAllProducts() {
 }
 
 function getProductsById(id) {
-	return products.filter((product) => {
+	return products.find((product) => {
 		return product.id === id;
 	});
 }
@@ -29,8 +29,34 @@ function getProductsByPrice(min, max) {
 	});
 }
 
+function addNewProduct(id, description, price) {
+	const product = {
+		id,
+		price,
+		description,
+		reviews: []
+	};
+
+	products.push(product);
+	return product;
+}
+
+function addNewProductReview(id, rating, comment) {
+	const index = products.findIndex((object) => {
+		return object.id === id;
+	});
+
+	if (index !== -1) {
+		products[index].reviews.push({ rating, comment });
+	}
+
+	return products[index];
+}
+
 module.exports = {
 	getAllProducts,
 	getProductsById,
-	getProductsByPrice
+	getProductsByPrice,
+	addNewProduct,
+	addNewProductReview
 };
